@@ -18,3 +18,4 @@
 import SingleCard from '@/components/UI/SingleCard.vue';
 import MultiCard from '@/components/UI/MultiCard.vue';
 </script>
+=

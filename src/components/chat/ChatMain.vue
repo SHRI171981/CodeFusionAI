@@ -3,7 +3,7 @@
       <ChatRegion/>
 
       <!-- Input Box -->
-      <div class="p-4 flex gap-2 bg-white border-t border-gray-300 mt-auto sticky">
+      <div class="p-4 flex gap-2 border-t border-gray-300 mt-auto sticky">
         <SearchBox class="w-full p-10">
           <template #symbol>
             <Send />

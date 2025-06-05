@@ -11,10 +11,12 @@ export const useQuestionsStore = defineStore('questionStore', () => {
     try{
       loading.value = true
       const data = await apiClient.get('/questions'); // from global route
-      questions.value = data['data']; // no need of .json()
+      questions.value = data['data']['questions']; // no need of .json()
+      console.log(questions.value)
     }
     catch(error){
       console.error("Error Fetching Data: " + error)
+      fetchQuestions();
     }
     finally{
       loading.value = false;
@@ -23,12 +25,13 @@ export const useQuestionsStore = defineStore('questionStore', () => {
 
   const isLoading = computed(() => loading.value)
 
-  const selectQuestion = (id) => {
-    selectedQuestionID.value = id;
+  const selectQuestion = (title) => {
+    selectedQuestionID.value = title;
   };
 
   const selectedQuestion = computed(() =>
-    questions.value.find((q) => q.id === selectedQuestionID.value) || null
+    questions.value.find(
+      (q) => q.title === selectedQuestionID.value) || null
   );
 
 

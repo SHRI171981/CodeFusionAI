@@ -9,6 +9,8 @@ import ConstestView from '@/views/ConstestView.vue'
 import NotFound from '@/views/NotFound.vue'
 import TrialView from '@/views/TrialView.vue'
 import QuestionDetailsView from '@/views/QuestionDetailsView.vue'
+import LoginView from '@/views/LoginView.vue'
+import SignupView from '@/views/SignupView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,12 +58,12 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: HomeView,
+      component: LoginView,
     },
     {
-      path: '/signup',
-      name: 'signup',
-      component: HomeView,
+      path: '/sign-up',
+      name: 'sign-up',
+      component: SignupView,
     },
     {
       path:'/trial',

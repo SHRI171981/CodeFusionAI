@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    @apply bg-gray-200
+    @apply bg-gray-300 text-black dark:bg-gray-700 dark:text-white
 }
 
 h1{
@@ -22,15 +22,15 @@ h3{
       @apply w-3
     }
   
-    ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {  /* background of the full scroller */
       @apply bg-slate-500
     }
   
-    ::-webkit-scrollbar-thumb {
-      @apply bg-slate-900
+    ::-webkit-scrollbar-thumb { /* actual scrolling icon */ 
+      @apply bg-slate-900 dark:bg-slate-100
     }
   
-    ::-webkit-scrollbar-thumb:hover {
-      @apply bg-slate-700
+    ::-webkit-scrollbar-thumb:hover { /* scrolling icon on hover */
+      @apply bg-slate-700 dark:bg-slate-300
     }
 }  

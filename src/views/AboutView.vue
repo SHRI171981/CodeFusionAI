@@ -1,8 +1,8 @@
 <template>
   <section class="py-12 px-6 h-screen">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-900">About Us</h2>
-      <p class="mt-4 text-gray-700">
+      <h2 class="text-3xl font-bold">About Us</h2>
+      <p class="mt-4">
         Welcome to <span class="font-semibold">CodeFusion AI</span>,
          the ultimate platform for coding enthusiasts, students, and professionals
          to enhance their problem-solving skills.

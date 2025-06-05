@@ -17,4 +17,15 @@
 import RightCanvas from '@/components/home/RightCanvas.vue';
 import LeftCanvas from '@/components/home/LeftCanvas.vue';
 import MiddleCanvas from '@/components/home/MiddleCanvas.vue';
+
+import { useNewsStore } from '@/stores/newsStore';
+import { onMounted } from 'vue';
+const newsStore = useNewsStore();
+
+onMounted(() => {
+  if(newsStore.news_list.length == 0){
+    newsStore.fetchNews();
+  }
+});
+
 </script>

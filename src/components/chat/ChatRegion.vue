@@ -33,12 +33,12 @@ const ai_chat = [
   },
   {
     id: 4,
-    input: "What’s the biggest difference between Vue 2 and Vue 3?",
+    input: "What's the biggest difference between Vue 2 and Vue 3?",
     output: "The biggest difference is the Composition API, which provides a more modular approach to managing component logic. Vue 3 also improves performance with a better virtual DOM and built-in TypeScript support."
   },
   {
     id: 5,
-    input: "That’s great! Do I need to rewrite my Vue 2 project?",
+    input: "That's great! Do I need to rewrite my Vue 2 project?",
     output: "Not necessarily. Vue 3 maintains backward compatibility, and there's an official migration tool to help you transition your project step by step."
   },
   {
