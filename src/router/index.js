@@ -19,41 +19,49 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/questions',
       name: 'questions',
       component: QuestionView,
+      meta: {requiresAuth: true}
     },
     {
       path:'/question-details',
       name:'question-details',
-      component:QuestionDetailsView
+      component:QuestionDetailsView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/discuss',
       name: 'discuss',
       component: DiscussView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/contests',
       name: 'contests',
       component: ConstestView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/chat',
       name: 'chat',
       component: ChatView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/profile',
       name: 'profile',
       component: ProfileView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/login',
@@ -76,5 +84,18 @@ const router = createRouter({
     }
   ],
 })
+
+// Route guard to protect private routes
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token');
+  const isAuthenticated = !!token;
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    alert('Please login to access this page.');
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router

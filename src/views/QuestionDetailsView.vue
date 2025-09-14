@@ -97,11 +97,11 @@ import { marked } from 'marked'
 // };
 
 const createMessage = (description, writtenCode) => {
-  return "Please go through the given question\n"
+  return "Please go through the given question: \n\n"
   + description
-  + "\nSee this code written\n"
+  + "\n\n See this code written \n\n "
   + writtenCode
-  + "\nReview the given code and give your suggestions"
+  + "\n\n Review the given code and give your suggestions"
 }
 
 const responseRec = ref(null);
