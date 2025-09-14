@@ -3,16 +3,26 @@
       <div class="h-1/10">
         <h2>AI Chat</h2>
       </div>
-      <ButtonComp variant="green">
+      <ButtonComp variant="green" @click="chatStore.startNewChat()">
         + New Chat
       </ButtonComp>
-      <div class="overflow-y-auto">
-        <SingleCard class="grid gap-4 p-4">
-          <ButtonComp v-for="chat in chats" :key="chat.id" class="w-full" variant="blue">
-            {{ chat.title }}
+      <div class="overflow-y-auto" v-if="!loading">
+        <SingleCard class="grid gap-4 p-4 hover:!bg-gray-300 dark:hover:!bg-gray-700">
+          <ButtonComp
+            v-for="chat in chats"
+            :key="chat.id"
+            class="w-full" variant="blue"
+            :class="chat.id === selectedChatId ? '!text-xl font-bold shadow-md shadow-blue-950 dark:shadow-blue-50' : '!text-lg font-normal opacity-70'"
+            @click="chatStore.selectChatSession(chat.id)"
+          >
+            {{ chat.session_title }}
           </ButtonComp>
         </SingleCard>
       </div>
+      <div class="overflow-y-auto" v-else>
+        <LoadingChat/>
+      </div>
+
       <div class="flex mt-auto w-full p-8 text-xl font-semibold">
         <ButtonComp class="flex gap-4 w-full p-4 justify-center place-items-center" variant="orange">
         <Settings/> Settings
@@ -26,49 +36,15 @@ import MultiCard from '@/components/UI/MultiCard.vue';
 import ButtonComp from '@/components/UI/ButtonComp.vue';
 import SingleCard from '@/components/UI/SingleCard.vue';
 import { Settings } from 'lucide-vue-next';
+import { useChatStore } from '@/stores/chatStore';
+import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
+import LoadingChat from '@/components/chat/LoadingChat.vue';
 
+const chatStore = useChatStore();
+const { chats, loading, selectedChatId } = storeToRefs(chatStore);
 
-const chats = [
-  {
-    id:1,
-    title:'Chat 1'
-  },
-  {
-    id:2,
-    title:'Chat 2'
-  },
- {
-    id:3,
-    title:'Chat 3'
-  },
-  {
-    id:4,
-    title:'Chat 4'
-  },
-  {
-    id:5,
-    title:'Chat 5'
-  },
-  {
-    id:6,
-    title:'Chat 6'
-  },
-  {
-    id:7,
-    title:'Chat 7'
-  },
-  {
-    id:8,
-    title:'Chat 8'
-  },
-  {
-    id:9,
-    title:'Chat 9'
-  },
-  {
-    id:10,
-    title:'Chat 10'
-  }
-]
-
+onMounted(() => {
+  chatStore.fetchChats();
+});
 </script>
