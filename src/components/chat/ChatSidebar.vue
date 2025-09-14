@@ -15,7 +15,7 @@
             :class="chat.id === selectedChatId ? '!text-xl font-bold shadow-md shadow-blue-950 dark:shadow-blue-50' : '!text-lg font-normal opacity-70'"
             @click="chatStore.selectChatSession(chat.id)"
           >
-            {{ chat.session_title }}
+            {{ chat.session_title }} {{ chat.id }}
           </ButtonComp>
         </SingleCard>
       </div>

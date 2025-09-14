@@ -71,7 +71,7 @@ const handleLogin = async () => {
   try{
     console.log('Logging in with:', formData);
     const response = await apiClient.post('/login/', formData);
-    if(response.status === 201){
+    if(response.status === 200){
       const { access_token, user_id, token_type } = response.data;
       localStorage.setItem('access_token', access_token);
       localStorage.setItem('user_id', user_id);
