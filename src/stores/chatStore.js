@@ -85,10 +85,11 @@ export const useChatStore = defineStore('chatStore', () => {
           console.log("Chat Started: ", response.data);
           const data = response.data.message;
           selectedChat.value.push(data);
+
           const title = data.session_title;
           console.log("Chat Title: ", title);
-          selectedChatId.value = data.id;
-          chats.value.unshift({ id: data.id, session_title: title }); // Add new chat to the top of the list
+          selectedChatId.value = data.session_id;
+          chats.value.unshift({ id: data.session_id, session_title: title }); // Add new chat to the top of the list
         }
         else{
           console.error("Error Starting Chat: " + response.statusText);
