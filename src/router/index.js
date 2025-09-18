@@ -87,7 +87,7 @@ const router = createRouter({
 
 // Route guard to protect private routes
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('access_token');
   const isAuthenticated = !!token;
 
   if (to.meta.requiresAuth && !isAuthenticated) {
